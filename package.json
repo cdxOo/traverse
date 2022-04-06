@@ -1,0 +1,27 @@
+{
+  "name": "@cdxoo/traverse",
+  "version": "0.0.1",
+  "description": "does not traverseten cats",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npx mocha --bail test/*.spec.js"
+  },
+  "author": "Jan Schwalbe",
+  "license": "MIT",
+  "keywords": [
+    "traverse",
+    "cats"
+  ],
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdxOo/traverse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdxOo/traverse/issues"
+  },
+  "homepage": "https://github.com/cdxOo/traverse#readme"
+}
