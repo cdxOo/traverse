@@ -21,7 +21,7 @@ var isArray = (that) => {
 
 var TNode = (context) => {
     var { key, value, parentNode, options } = context;
-    var { onlyPlainObjects, traverseArrays } = options;
+    var { onlyPlainObjects, traverseArrays, createPathToken } = options;
 
     var shouldTraverse = (
         isObject(value) && onlyPlainObjects === false ||
@@ -44,7 +44,7 @@ var TNode = (context) => {
     }
     if (key !== undefined) {
         isRoot = false;
-        path.push(key);
+        path.push(createPathToken({ parentNode, key, value }));
     }
 
     var node = {
@@ -66,6 +66,7 @@ var _traverse = (context) => {
     var {
         onlyPlainObjects = true,
         traverseArrays = false,
+        createPathToken = ({ key }) => (key),
     } = options;
     
     var node = TNode({
@@ -74,7 +75,8 @@ var _traverse = (context) => {
         parentNode,
         options: {
             onlyPlainObjects,
-            traverseArrays
+            traverseArrays,
+            createPathToken
         }
     });
     
@@ -93,7 +95,7 @@ var _traverse = (context) => {
     }
 }
 
-var traverse = (that, lambda, options) => {
+var traverse = (that, lambda, options = {}) => {
     _traverse({ key: undefined, value: that, lambda, options });
 }
 
