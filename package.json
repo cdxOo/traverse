@@ -1,6 +1,6 @@
 {
   "name": "@cdxoo/traverse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "does not traverseten cats",
   "main": "src/index.js",
   "scripts": {
